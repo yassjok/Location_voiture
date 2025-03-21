@@ -1,0 +1,177 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+/* Resetting default margin, padding, and box model */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+header nav{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between; /* Distributes content between left and right edges */
+    align-items: center;
+    height: 80px;
+}
+header nav .logo{
+    width: 150px;
+    position: sticky;
+}
+header nav .menu{
+    display: flex; /* Displays menu items in a row */
+    align-items: center;
+    text-align: center;
+    position :sticky;
+}
+nav .menu a{
+    color: #fff;
+    margin-left: 40px;
+    position: relative;
+    
+}
+/* Underline effect on menu hover */
+nav .menu a::after{
+    content: ''; /* To display the red line under the menu elements */
+    position: absolute;
+    bottom: -5px; /* Moves the underline slightly below the text */
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #dd0707;
+    transition: 0.4s; /* Smooth animation for the hover effect */
+}
+nav .menu a:hover::after{
+    width: 100%;
+}
+nav .social a i{
+    color: #fff;
+    font-size: 22px;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+nav .social a i:hover{
+    transform: scale(1.3);
+    color: #dd0707;
+}
+.hero{
+    width: 100%;
+    height: 100vh;
+    background: url(img/1.png);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero .text{
+    width: 90%;
+    margin: auto;
+}
+.hero .text h4{
+    font-size: 40px;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.hero .text h1{
+    color: #fff;
+    font-size: 65px;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 30px;
+}
+.hero .text h1 span{
+    color: #dd0707;
+    font-size: 80px;
+    font-weight: bold;
+}
+.hero .text p{
+    color: #fff;
+    margin-bottom: 30px;
+}
+.hero .text .btn{
+    padding: 10px 30px;
+    background-color: #dd0707;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 30px;
+    border: 2px solid #dd0707;
+    transition: 0.3s;
+}
+.hero .text .btn:hover{
+    background-color: transparent;
+}
+  /* Styling h1 title*/
+.title {    
+text-align: center;
+color: white;
+font-family :'Times New Roman', Times, serif
+}
+/*Style for car image*/
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 20px;
+}
+.car-card {
+    background: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+.car-card:hover {
+    transform: translateY(-10px);
+}
+.car-image img {
+    width: 100%;
+    height: auto;
+    image-rendering: high-quality; /* Helps in some browsers */
+}
+.car-info {
+    padding: 20px;
+}
+.car-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+.car-price {
+    font-size: 20px;
+    color: red;
+    margin: 10px 0;
+}
+.rent-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+.rent-button:hover {
+    background-color: white;
+    color: red;
+}

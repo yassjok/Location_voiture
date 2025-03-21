@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head>
+ 
+    <title>Cars</title>
+
+    <!-- Link Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Link File CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body bgcolor="black" text="White">
+    <header>
+        <!-- Menu-->
+        <nav>
+            <img src="img/car-logo.png" class="logo" alt="">
+            <div class="menu">
+                <a href="#">Home</a>
+                <a href="#">Our Cars</a>
+                <a href="#">About Us</a>
+                <a href="https://www.linkedin.com/in/yassine-hajib-55a307300/">Contact Us </a>
+            </div>
+            <div class="social">
+                <a href="https://www.instagram.com/yassii._.ne/"> <i class="fa-brands fa-instagram"></i></a>
+                <a href ="https://www.linkedin.com/in/yassine-hajib-55a307300/" > <i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+
+        </nav>
+    </header>
+    
+    <div class="hero">
+
+        <div class="text">
+            <h1>Born to <br> <span>Drive</span></h1>
+            <p> Live New  Drive Experience </p>
+            <a href="#" class="btn"> Discover Our Cars</a>
+        </div>
+    </div>
+
+    <script>
+        let heroBg = document.querySelector('.hero');
+        // Background image swap effect
+        setInterval(() => {
+            heroBg.style.backgroundImage = "url(img/1.png)"
+            
+            setTimeout(() => {
+                heroBg.style.backgroundImage = "url(img/2.png)"
+            }, 1000);
+        }, 2200);
+    </script>
+
+        <br><br>
+        <h1 class="title"> Our Cars</h1>
+
+        
+<!-- Car images-->
+
+<div class="container">
+    <div class="car-card">
+        <div class="car-image">
+            <img src="Car/1.png" alt="Car 1">
+        </div>
+        <div class="car-info">
+            <div class="car-name">Range Rover Sport</div>
+            <div class="car-price"> 1497 Dh/day</div>
+            <a href="#" class="rent-button">Rent Now</a>
+        </div>
+    </div>
+
+    <div class="car-card">
+        <div class="car-image">
+            <img src="Car/6.png" alt="Car 2">
+        </div>
+        <div class="car-info">
+            <div class="car-name"> Mercedes GT 63 </div>
+            <div class="car-price"> 4599 Dh/day</div>
+            <a href="#" class="rent-button">Rent Now</a>
+        </div>
+    </div>
+
+    
+    <div class="car-card">
+        <div class="car-image">
+            <img src="Car/9.png" alt="Car 3">
+        </div>
+        <div class="car-info">
+            <div class="car-name"> BMW M4 Competition </div>
+            <div class="car-price"> 2199 Dh/day</div>
+            <a href="#" class="rent-button">Rent Now</a>
+        </div>
+    </div>
+</div> 
+
+<br><br>
+
+<div class="container">
+    <div class="car-card">
+        <div class="car-image">
+            <img src="Car/12.png" alt="Car 1">
+        </div>
+        <div class="car-info">
+            <div class="car-name"> Rolls Roys </div>
+            <div class="car-price"> 8999 Dh/day</div>
+            <a href="#" class="rent-button">Rent Now</a>
+        </div>
+    </div>
+
+    <div class="car-card">
+        <div class="car-image">
+            <img src="Car/16.png" alt="Car 2">
+        </div>
+        <div class="car-info">
+            <div class="car-name"> Porche 911 carrera </div>
+            <div class="car-price"> 6599 Dh/day</div>
+            <a href="#" class="rent-button">Rent Now</a>
+        </div>
+    </div>
+
+    
+    <div class="car-card">
+        <div class="car-image">
+            <img src="Car/21.png" alt="Car 3">
+        </div>
+        <div class="car-info">
+            <div class="car-name">  Lamborguini Aventador</div>
+            <div class="car-price"> 9999 Dh/day</div>
+            <a href="#" class="rent-button">Rent Now</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
