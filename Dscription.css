@@ -1,0 +1,12 @@
+body{
+    color: red;
+    background: #000;
+}
+
+.Dscrptionn {
+    text-align: center;
+    font-size: 40px;
+}
+.Dscrptionn:hover{
+    color: aliceblue;
+}
