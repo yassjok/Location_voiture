@@ -179,4 +179,6 @@ body {
 
 /*Scroll To Section Effet */
 
-
+#User{
+    float : left;
+}
