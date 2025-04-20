@@ -1,78 +1,99 @@
 <!DOCTYPE html>
-<head> 
-    <title>  BMW M4 Competition </title>
-    <!-- Link Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-       <!-- Link File CSS -->
-     <link rel="stylesheet" href="Dscription.css">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Luxury Drive</title>
+  <link rel="stylesheet" href="car_style.css">
+  <script src="script.js"></script>
 </head>
 <body>
-    <div class="social">
-        
-        <a href="https://www.instagram.com/yassii._.ne/"> <i class="fa-brands fa-instagram"></i></a>
-        <a href ="https://www.linkedin.com/in/yassine-hajib-55a307300/" > <i class="fa-brands fa-linkedin-in"></i></a>
-    </div>
-    <nav>
-        <img src="img/car-logo.png" class="logo" alt="">
-    </nav>
-   
-    <h1 class="Dscrptionn" >  BMW M4 Competition  </h1>
 
-    <br><br><br>
-    
-       <!-- Main image that will change when a thumbnail is clicked -->
-    <img id="mainImage" class="main-image" src="Car/8.png" alt="Main Image">
+<header>
+  <h1>Luxary Drive</h1>
+  <nav>
+    <a href="#cars">Our Cars</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+</header>
 
-     <!-- Thumbnail images - Clicking them changes the main image -->
+<section class="main-section">
+  <div class="main-left">
+    <img src="Car/8.png" alt="Car Image" id="mainImage">
     <div class="thumbnails">
-        <img src="Car/9.png" alt="Thumbnail 1" onclick="changeImage('Car/9.png')">
-        <img src="Car/10.png" alt="Thumbnail 2" onclick="changeImage('Car/10.png')">
-        <img src="Car/11.png" alt="Thumbnail 3" onclick="changeImage('Car/11.png')">
+      <img src="Car/9.png" onclick="changeImage(this)">
+      <img src="Car/10.png" onclick="changeImage(this)">
+      <img src="Car/11.png" onclick="changeImage(this)">
     </div>
+  </div>
+  <div class="main-right">
+    <h1>  BMW M4 Competition </h1><br>
+    <p id="price"> 2500 Dhs/day </p><br>
 
-    <script>
-        // Function to change the main image when a thumbnail is clicked
-        function changeImage(imageSrc) {
-            document.getElementById("mainImage").src = imageSrc;
-        }
-    </script>
+    <h1> Booking Duration </h1>
+    <br><label>From: 
+      <br><input type="date"><br>
+    </label><br>
+    <label>To:
+      <br><input type="date">
+    </label><br>
 
+    <br><h1> User Information </h1><br>
+    <div class="input">
+    <input type="text" placeholder="Name">
+    <input type="tel" placeholder="Phone">
+    <button class="submit-btn"> Rent Now  </button>
+  </div>
+  </div>
+</section>
+<br><br><br><br>
+  
 
-    <!--General Car Information-->
-   
-    <div class="Car_information">
-        <h2 id="titlee"> General Information About The Car</h2>
-         <div class="listt">
-            <ul>
-               <li> Carburant : Diesel</li><br>
-                <li> Model : 2024 </li><br>
-                <li> Killometrages : 10000 km </li><br>
-                <li> Laivraison : Every where in Morocco</li><br>
-                    <li > Car Options :</li> 
-                    <br>
-                        <ul class="option" style="list-style-type: square;"><br>
-                            <li> Panoramic Roof </li><br>
-                            <li>  Vitess : 8 speed (Automatic) </li><br>
-                            <li> Cylinders: 8-cylinder (V8) </li><br>
-                        </ul>   
-                        <br>
-                         <li > Technology & Safety :<br>
-                            <br>
-                            <ul class="option" style="list-style-type: square;"> <br>
-                                <br>
-                                <li> Camera 360 °</li><br>
-                                <li> Park Assist </li><br>
-                                <li> Air Bag </li><br>
-                                <li> ABS </li>
-                                <br>
-                            </ul>
-                         </li>
-            </ul>
-         </div>
+<section class="hero">
+  <div class="hero-text">
+    <h2>Rent the All-New Range Rover Sport</h2>
+    <p>Experience luxury, comfort, and performance like never before. Book now and enjoy the ride.</p>
+    <button onclick="scrollToBooking()">Book Now</button>
+  </div>
+</section>
+
+<section class="alternating">
+  <div class="alt-block">
+    <img src="Car/1.png" alt="Interior View" />
+    <div>
+      <h3>Elegant Interior</h3>
+      <p>Crafted with the finest materials, the Range Rover Sport provides unmatched comfort.</p>
     </div>
+  </div>
+  <div class="alt-block reverse">
+    <div>
+      <h3>Powerful Performance</h3>
+      <p>Equipped with a high-performance engine to deliver a smooth and thrilling ride.</p>
+    </div>
+    <img src="Car/2.png"Performance View" />
+  </div>
+</section>
 
+<section class="reviews">
+  <h2>What Our Customers Say</h2>
+  <div class="review-list">
+    <div class="review">
+      <p>“Incredible ride. The Range Rover Sport made our weekend trip unforgettable.”</p>
+      <span>- Sarah L.</span>
+    </div>
+    <div class="review">
+      <p>“Professional service and the car was in perfect condition. Highly recommended.”</p>
+      <span>- Ahmed R.</span>
+    </div>
+    <div class="review">
+      <p>“Smooth experience from booking to return. Will rent again!”</p>
+      <span>- Carlos G.</span>
+    </div>
+  </div>
+</section>
 
-
-</div>
+<footer>
+  <p>&copy; 2025 Luxury Drive. All rights reserved.</p>
+</footer>
 </body>
 </html>

@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background: black;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  header {
+    background: #111;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header h1 {
+    color: red;
+  }
+  nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  nav a:hover {
+    color: red;
+  }
+
+  .main-section {
+    display: flex;
+    padding: 40px;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+
+  .main-left img {
+    width: 500px;
+    border: 3px solid red;
+    border-radius: 10px;
+      }
+
+  .thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    position:absolute;
+    left: 10;
+
+
+  }
+
+  .thumbnails img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 5px;
+
+  }
+
+  .main-right {
+    max-width: 500px;
+
+  }
+
+  .main-right h1 {
+    color: red;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .submit-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor : pointer;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .submit-btn:hover {
+    background-color: darkred;  /* darker red on hover */
+  }
+
+  .alt-section {
+    display: flex;
+    align-items: right;
+    justify-content: left;
+    padding: 50px;
+    gap: 30px;
+  }
+
+  .alt-section:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .alt-section img {
+    width: 300px;
+    border-radius: 10px;
+    margin-left: 30%;
+  }
+
+  .alt-section .info {
+    max-width: 400px;
+  }
+
+  .reviews {
+    background-color: #111;
+    padding: 50px 30px;
+    text-align: center;
+  }
+
+  .review {
+    background: #222;
+    color: #ddd;
+    margin: 15px auto;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 10px;
+    font-style: italic;
+  }
+
+  #price {
+    font-size: 40px;
+  }
+
+  input {
+    display :inline;       
+  } 
+
+  #info{
+    color: red;
+    font-size: 30px;
+    margin-left: 30%;
+  }
+
+
+
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background: black;
+    color: white;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  header {
+    background: #111;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    align-items: center;
+  }
+  .logo {
+    color: red;
+    font-size: 24px;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s;
+  }
+  nav a:hover {
+    color: red;
+  }
+  
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('car-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    text-align: center;
+  }
+  .hero-text {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 10px;
+  }
+  .hero h2 {
+    font-size: 36px;
+    color: red;
+  }
+  .hero p {
+    margin: 20px 0;
+  }
+  .hero button {
+    padding: 10px 20px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .hero button:hover {
+    background: darkred;
+  }
+  
+  .alternating {
+    padding: 60px 20px;
+  }
+  .alt-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  .alt-block.reverse {
+    flex-direction: row-reverse;
+  }
+  .alt-block img {
+    width: 45%;
+    border-radius: 12px;
+  }
+  .alt-block div {
+    width: 45%;
+  }
+  .alt-block h3 {
+    color: red;
+    margin-bottom: 10px;
+  }
+  .alt-block p {
+    font-size: 16px;
+    color: #ccc;
+  }
+  
+  .reviews {
+    background: #111;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .reviews h2 {
+    color: red;
+    margin-bottom: 40px;
+  }
+  .review-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .review {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    color: #eee;
+  }
+  .review span {
+    display: block;
+    margin-top: 10px;
+    color: red;
+    font-weight: bold;
+  }
+  
+  footer {
+    background: #000;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #888;
+  }
+  

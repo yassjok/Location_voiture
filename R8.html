@@ -1,77 +1,73 @@
-<!DOCTYPE html>
-<head> 
-    <title>  Audi R8 </title>
-    <!-- Link Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-       <!-- Link File CSS -->
-     <link rel="stylesheet" href="Dscription.css">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Luxury Drive</title>
+  <link rel="stylesheet" href="car_style.css">
+  <script src="script.js"></script>
 </head>
 <body>
-    <div class="social">
-        
-        <a href="https://www.instagram.com/yassii._.ne/"> <i class="fa-brands fa-instagram"></i></a>
-        <a href ="https://www.linkedin.com/in/yassine-hajib-55a307300/" > <i class="fa-brands fa-linkedin-in"></i></a>
-    </div>
-    <nav>
-        <img src="img/car-logo.png" class="logo" alt="">
-    </nav>
-   
-    <h1 class="Dscrptionn" >    Audi R8 </h1>
 
-    <br><br><br>
-    
-       <!-- Main image that will change when a thumbnail is clicked -->
-    <img id="mainImage" class="main-image" src="Car/26.png" alt="Main Image">
+<header>
+  <h1>Luxary Drive</h1>
+  <nav>
+    <a href="#cars">Our Cars</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+</header>
 
-     <!-- Thumbnail images - Clicking them changes the main image -->
+<section class="main-section">
+  <div class="main-left">
+    <img src="Car/27.png" alt="Car Image" id="mainImage">
     <div class="thumbnails">
-        <img src="Car/25.png" alt="Thumbnail 1" onclick="changeImage('Car/25.png')">
-        <img src="Car/27.png" alt="Thumbnail 2" onclick="changeImage('Car/27.png')">
+      <img src="Car/25.png" onclick="changeImage(this)">
+      <img src="Car/26.png" onclick="changeImage(this)">
     </div>
+  </div>
+  <div class="main-right">
+    <h1>  Audi R8 </h1><br>
+    <p id="price"> 4597 Dhs/day </p><br>
 
-    <script>
-        // Function to change the main image when a thumbnail is clicked
-        function changeImage(imageSrc) {
-            document.getElementById("mainImage").src = imageSrc;
-        }
-    </script>
+    <h1> Booking Duration </h1>
+    <br><label>From: 
+      <br><input type="date"><br>
+    </label><br>
+    <label>To:
+      <br><input type="date">
+    </label><br>
 
+    <br><h1> User Information </h1><br>
+    <div class="input">
+    <input type="text" placeholder="Name">
+    <input type="tel" placeholder="Phone">
+    <button class="submit-btn"> Rent Now  </button>
+  </div>
+  </div>
+</section>
 
-    <!--General Car Information-->
-   
-    <div class="Car_information">
-        <h2 id="titlee"> General Information About The Car</h2>
-         <div class="listt">
-            <ul>
-               <li> Carburant : Essence</li><br>
-                <li> Model : 2023 </li><br>
-                <li> Killometrages : 49000 km </li><br>
-                <li>Top Speed : 350 km/h</li><br>
-                <li> Laivraison : Every where in Morocco</li><br>
-                    <li > Car Options :</li> 
-                    <br>
-                        <ul class="option" style="list-style-type: square;"><br>
-                            <li>  Vitess : 8 speed (Automatic) </li><br>
-                            <li> Cylinders: 12-cylinder (V12) </li><br>
-                        </ul>   
-                        <br>
-                         <li > Technology & Safety :<br>
-                            <br>
-                            <ul class="option" style="list-style-type: square;"> <br>
-                                <br>
-                                <li> Camera 360 °</li><br>
-                                <li> Line Assist </li><br>
-                                <li> Air Bag </li><br>
-                                <li> ABS </li><br>
-                                <br>
-                            </ul>
-                         </li>
-            </ul>
-         </div>
+<section class="reviews">
+    <h2>What Our Customers Say</h2>
+    <div class="review-list">
+      <div class="review">
+        <p>“Incredible ride. The Range Rover Sport made our weekend trip unforgettable.”</p>
+        <span>- Sarah L.</span>
+      </div>
+      <div class="review">
+        <p>“Professional service and the car was in perfect condition. Highly recommended.”</p>
+        <span>- Ahmed R.</span>
+      </div>
+      <div class="review">
+        <p>“Smooth experience from booking to return. Will rent again!”</p>
+        <span>- Carlos G.</span>
+      </div>
     </div>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 Luxury Drive. All rights reserved.</p>
+  </footer>
 
 
-
-</div>
-</body>
+<br><br><br><br>
+  </body>
 </html>
