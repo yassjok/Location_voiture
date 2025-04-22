@@ -391,4 +391,79 @@ body {
 
   
 
- 
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .review-section {
+    position: relative;
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #000;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    color: #e50914;
+    margin-bottom: 40px;
+  }
+  
+  .reviews-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    height: 220px;
+  }
+  
+  .review-card {
+    min-width: 100%;
+    transition: transform 0.5s ease;
+    padding: 20px;
+  }
+  
+  .review-text {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #fff;
+  }
+  
+  .reviewer-name {
+    font-weight: bold;
+    color: #e50914;
+  }
+  
+  .stars {
+    color: #e50914;
+    margin-top: 10px;
+  }
+  
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: #e50914;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  .nav-btn:hover {
+    color: #fff;
+  }
+  
+  .nav-btn:first-of-type {
+    left: 20px;
+  }
+  
+  .nav-btn:last-of-type {
+    right: 20px;
+  }
+  
