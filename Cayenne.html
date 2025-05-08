@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Luxury Drive</title>
+  <link rel="stylesheet" href="car_style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Luxary Drive</h1>
+  <nav>
+    <a href="#cars">Our Cars</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
+  </nav>
+</header>
+
+<section class="main-section">
+  <div class="main-left">
+    <img src="Car/Cayenne_2.jpeg" alt="Car Image" id="mainImage">
+    <div class="thumbnails">
+      <img src="Car/Cayenne_1.jpeg" onclick="changeImage(this)">
+      <img src="Car/Cayenne_2.jpeg" onclick="changeImage(this)">
+      <img src="Car/Cayenne_3.jpeg" onclick="changeImage(this)">
+      <img src="Car/Cayenne_4.jpeg" onclick="changeImage(this)">
+      <img src="Car/Cayenne_5.jpeg" onclick="changeImage(this)">
+    </div>
+  </div>
+  <div class="main-right">
+    <h1>  Porch Cayenne </h1><br>
+    <p id="price"> 6500 Dhs/day </p><br>
+
+    <h1> Booking Duration </h1>
+    <br><label>From: 
+      <br><input type="date"><br>
+    </label><br>
+    <label>To:
+      <br><input type="date">
+    </label><br>
+
+    <br><h1> User Information </h1><br>
+    <div class="input">
+    <input type="text" placeholder="Name">
+    <input type="tel" placeholder="Phone">
+    <button class="submit-btn"> Rent Now  </button>
+  </div>
+  </div>
+</section>
+
+<section class="reviews">
+    <h2>What Our Customers Say</h2>
+    <div class="review-list">
+      <div class="review">
+        <p>“Incredible ride. The Range Rover Sport made our weekend trip unforgettable.”</p>
+        <span>- Sarah L.</span>
+      </div>
+      <div class="review">
+        <p>“Professional service and the car was in perfect condition. Highly recommended.”</p>
+        <span>- Ahmed R.</span>
+      </div>
+      <div class="review">
+        <p>“Smooth experience from booking to return. Will rent again!”</p>
+        <span>- Carlos G.</span>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 Luxury Drive. All rights reserved.</p>
+  </footer>
+
+
+<br><br><br><br>
+  </body>
+</html>
