@@ -1,5 +1,3 @@
-
-
 function changeImage(el) {
     document.getElementById("mainImage").src = el.src;
   }
@@ -9,22 +7,36 @@ function changeImage(el) {
     section.scrollIntoView({ behavior: 'smooth' });
   }
 
+    // Rebuild containers with 3 cars per row
+    let currentContainer = document.createElement('div');
+    currentContainer.className = 'container';
+    carSection.appendChild(currentContainer);
 
+    allCards.forEach((card, index) => {
+        if (index % 3 === 0 && index !== 0) {
+            currentContainer = document.createElement('div');
+            currentContainer.className = 'container';
+            carSection.appendChild(currentContainer);
+        }
+        currentContainer.appendChild(card);
+    });
+    
   const reviews = [
     {
-      text: "Absolutely stunning cars! I felt like royalty. The whole process was seamless and luxurious.",
-      name: "Ahmed Al Mansoori",
-      stars: 5,
+      text: "Absolutely Perfect  cars! I felt like royalty. The whole process was seamless and luxurious.",
+      name: "Ahmed ",
     },
     {
       text: "EliteDrive made our wedding unforgettable. Classy cars, top service!",
-      name: "Fatima Al Dhaheri",
-      stars: 5,
+      name: "Fatima ",
     },
     {
       text: "Professional staff and pristine vehicles. Will definitely rent again for business trips.",
-      name: "Khalid Bin Zayed",
-      stars: 4,
+      name: "Khalid ",
+    },
+    {
+      text: " The Best Services ever , The only Componies That Provide this Type Of Cars  ",
+      name: "Salma",
     }
   ];
   
@@ -38,7 +50,7 @@ function changeImage(el) {
     container.innerHTML = `
       <div class="review-card">
         <p class="review-text">"${review.text}"</p>
-        <div class="reviewer-name">- ${review.name}</div>
+        <div class="reviewer-name">- ${review.name}-</div>
         <div class="stars">${stars}</div>
       </div>
     `;

@@ -28,17 +28,26 @@
         </nav>
     </header>
     
-    <div class="hero">  <!-- Responsable For The Background  -->
+    <div class=" bgg">  <!-- Responsable For The Background  -->
         <div class="text">
             <a href="#" class="btn"> Discover Our Cars</a>
         </div>
     </div>
     <br><br><br>
-    <h1 id="tt"> Our Cars </h1>
-    <br><br><br>                                                                                                
+    <div class="Affichage">
 
+        <h1 id="tt"> Our Cars </h1>
+        <div>     <!--Sort Car By The Price-->
+            <button class="sortOrder" onclick="sortCars()">Sort Cars</button>
+            <select class="sortOrder">
+                <option value="asc"> Price: Low to High</option>
+                <option value="desc">Price: High to Low</option>
+            </select>
+        </div>
+    </div>
+
+    <br><br>                                                                                              
 <!-- Car images-->
-
 <div class="container">
     <div class="car-card">
         <div class="car-image">
@@ -46,7 +55,7 @@
         </div>
         <div class="car-info">
             <div class="car-name">Range Rover Sport</div>
-            <div class="car-price"> 4497 Dh/day</div>
+            <div class="car-price">  4 100 DH </div>
             <a href="Range.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -57,7 +66,7 @@
         </div>
         <div class="car-info">
             <div class="car-name"> Audi R8 </div>
-            <div class="car-price"> 8599 Dh/day</div>
+            <div class="car-price"> 6 000 DH </div>
             <a href="R8.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -69,7 +78,7 @@
         </div>
         <div class="car-info">
             <div class="car-name"> BMW M4 Competition </div>
-            <div class="car-price"> 3199 Dh/day</div>
+            <div class="car-price"> 3 200  DH</div>
             <a href="M4.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -84,7 +93,7 @@
         </div>
         <div class="car-info">
             <div class="car-name"> Rolls Roys </div>
-            <div class="car-price"> 18999 Dh/day</div>
+            <div class="car-price"> 11 000 DH </div>
             <a href="RollsRoys.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -95,7 +104,7 @@
         </div>
         <div class="car-info">
             <div class="car-name"> Porche 911 carrera </div>
-            <div class="car-price"> 11599 Dh/day</div>
+            <div class="car-price"> 7 000 DH </div>
             <a href="911.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -107,7 +116,7 @@
         </div>
         <div class="car-info">
             <div class="car-name">  Lamborguini Aventador</div>
-            <div class="car-price"> 19999 Dh/day</div>
+            <div class="car-price"> 9 000 DH </div>
             <a href="Lambo.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -122,7 +131,7 @@
         </div>
         <div class="car-info">
             <div class="car-name"> Audi Q8 </div>
-            <div class="car-price"> 4799 Dh/day</div>
+            <div class="car-price"> 5 000 DH </div>
             <a href="Q8.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -133,7 +142,7 @@
         </div>
         <div class="car-info">
             <div class="car-name">  Ferari 488 </div>
-            <div class="car-price"> 10599 Dh/day</div>
+            <div class="car-price"> 9 500 DH </div>
             <a href="Ferari488.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -145,7 +154,7 @@
         </div>
         <div class="car-info">
             <div class="car-name"> Bugatti Chiron </div>
-            <div class="car-price"> 19199 Dh/day</div>
+            <div class="car-price"> 12 000 DH </div>
             <a href="Bugatti.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -160,7 +169,7 @@
         </div>
         <div class="car-info">
             <div class="car-name">Audi Rs_6 ABT </div>
-            <div class="car-price"> 4900 Dh/day</div>
+            <div class="car-price"> 4 900 DH </div>
             <a href="Rs_6.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -171,7 +180,7 @@
         </div>
         <div class="car-info">
             <div class="car-name"> Lamborghini Urus  </div>
-            <div class="car-price"> 5599 Dh/day</div>
+            <div class="car-price"> 8 500 DH </div>
             <a href="Urus.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -183,7 +192,7 @@
         </div>
         <div class="car-info">
             <div class="car-name"> Tesla Cyber Truck</div>
-            <div class="car-price"> 10000 Dh/day</div>
+            <div class="car-price"> 10 000 DH </div>
             <a href="Tesla_CyberTruck.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -199,7 +208,7 @@
         </div>
         <div class="car-info">
             <div class="car-name">Audi Rs_7 ABT </div>
-            <div class="car-price"> 7800 Dh/day</div>
+            <div class="car-price"> 4 800  DH </div>
             <a href="Rs_7.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -210,7 +219,7 @@
         </div>
         <div class="car-info">
             <div class="car-name"> Mercedes Maybach  </div>
-            <div class="car-price"> 25 000 Dh/day</div>
+            <div class="car-price"> 15 000 DH / Day</div>
             <a href="Maybach.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -222,7 +231,7 @@
         </div>
         <div class="car-info">
             <div class="car-name"> Porche Cayenne Turbo GT </div>
-            <div class="car-price"> 6500 Dh/day</div>
+            <div class="car-price"> 7 500 DH </div>
             <a href="Cayenne.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -237,7 +246,7 @@
         </div>
         <div class="car-info">
             <div class="car-name"> Mercedes AMG Gt 63  </div>
-            <div class="car-price"> 5100 Dh/day</div>
+            <div class="car-price"> 5 400 DH </div>
             <a href="Mercedes_Gt_63.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -248,19 +257,17 @@
         </div>
         <div class="car-info">
             <div class="car-name"> Golf_8_R  </div>
-            <div class="car-price"> 1200 Dh/day</div>
+            <div class="car-price"> 1 200 DH</div>
             <a href="Golf_8_r.html" class="rent-button">Rent Now</a>
         </div>
     </div>
-
-    
     <div class="car-card">
         <div class="car-image">
             <img src="Car/Classe_E_Coupe_2.jpeg" alt="Car 3">
         </div>
         <div class="car-info">
             <div class="car-name"> Mercedes Classs E Coupe  </div>
-            <div class="car-price"> 2 099 Dh/day</div>
+            <div class="car-price"> 2 099 DH </div>
             <a href="Class_E_Coupe.html" class="rent-button">Rent Now</a>
         </div>
     </div>
@@ -270,43 +277,63 @@
 
 <h2 class="titre">About Us</h2>
 <br><br>
-  <div class="about-section">
+<div class="about-section">
     <div class="circle-info">
-      <div class="circle-number"> 45+ </div>
-      <div class="circle-label">Luxury Cars Available</div>
+        <div class="circle-number"> 18+ </div>
+        <div class="circle-label">Luxury Cars Available</div>
     </div>
     <div class="circle-info">
-      <div class="circle-number">24/7</div>
-      <div class="circle-label">Customer Support</div>
+        <div class="circle-number">24/7</div>
+        <div class="circle-label">Customer Support</div>
     </div>
     <div class="circle-info">
-      <div class="circle-number">5K+</div>
-      <div class="circle-label"> Happy Clients </div>
+        <div class="circle-number">5K+</div>
+        <div class="circle-label"> Happy Clients </div>
     </div>
     <div class="circle-info">
         <div class="circle-number"> +10  </div>
         <div class="circle-label"> Years Of Experciences </div>
-      </div>
-  </div>
+    </div>
+</div>
+
+<section class="info" id="info">
+    <div class="cta-section">
+        <h2> With Rent Auto  Drive it as Yours </h2>
+        <p>Book your dream car today and elevate your journey with EliteDrive.<br> Premium vehicles. First-class service. Memories guaranteed.</p>
+        <br><br>
+        <a href="#" class="BBoutun">Book Now</a>
+    </div> 
+    <br><br>
+    <script>
+        const hero = document.getElementById('info');
+        const backgrounds = [
+            "url('img/bg-light.jpg')",  
+            "url('img/bg.jpg')"   
+        ];
+            let index = 0;
+            function switchBackground() {
+            hero.style.backgroundImage = backgrounds[index];
+            index = (index + 1) % backgrounds.length;
+        }
+        switchBackground(); // Initial image
+        setInterval(switchBackground, 1000); // Change every 1 seconds
+        </script>
+    </section>
+    <br>
+
     <section class="review-section">
-      <h2 class="section-title">What Our Clients Say</h2>
+    <h2 class="section-title"> Clients Reviews  </h2>
       <div class="reviews-container" id="reviews-container">
-        <!-- Reviews injected by JS -->
-      </div>
-      <button class="nav-btn" onclick="prevReview()">&#10094;</button>
+    </div>
+
+    
+    <!-- Reviews injected by JS -->
+    <button class="nav-btn" onclick="prevReview()">&#10094;</button>
       <button class="nav-btn" onclick="nextReview()">&#10095;</button>
     </section>
     <script src="script.js"></script>
 
-
-
-  <div class="cta-section">
-    <h2>Experience Luxury Like Never Before</h2>
-    <p>Book your dream car today and elevate your journey with EliteDrive. Premium vehicles. First-class service. Memories guaranteed.</p>
-    <a href="#">Book Now</a>
-  </div>
-
-  <footer>
+  <footer class="footeer">
     <div><strong>EliteDrive</strong><br>Experience Luxury on Every Drive</div>
     <div>
       <h4> Company </h4>
@@ -326,7 +353,7 @@
       <a href="#"> Terms </a>
       <a href="#"> Privacy </a>
     </div>
-  </footer>
+     </footer>
 
-</body>
-</html>
+    </body>
+    </html>
