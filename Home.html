@@ -309,18 +309,73 @@
         </script>
     </section>
     <br>
-
     <section class="review-section">
-    <h2 class="section-title"> Clients Reviews  </h2>
-      <div class="reviews-container" id="reviews-container">
-    </div>
-
+    <h2 class="section-title">Clients Reviews</h2>
     
-    <!-- Reviews injected by JS -->
-    <button class="nav-btn" onclick="prevReview()">&#10094;</button>
-      <button class="nav-btn" onclick="nextReview()">&#10095;</button>
-    </section>
-    <script src="script.js"></script>
+    <div class="reviews-container" id="reviews-container"></div>
+
+    <button class="nav-btn left" onclick="prevReview()">&#10094;</button>
+    <button class="nav-btn right" onclick="nextReview()">&#10095;</button>
+  </section>
+
+
+     <script>
+    const reviews = [
+      {
+        text: "Absolutely Perfect cars! I felt like royalty. The whole process was seamless and luxurious.",
+        name: "Ahmed",
+        stars: 5
+      },
+      {
+        text: "EliteDrive made our wedding unforgettable. Classy cars, top service!",
+        name: "Fatima",
+        stars: 5
+      },
+      {
+        text: "Professional staff and pristine vehicles. Will definitely rent again for business trips.",
+        name: "Khalid",
+        stars: 4
+      },
+      {
+        text: "The best services ever, the only company that provides this type of cars.",
+        name: "Salma",
+        stars: 5
+      }
+    ];
+
+    let currentReview = 0;
+
+    function renderReview(index) {
+      const container = document.getElementById("reviews-container");
+      const review = reviews[index];
+      const stars = "★".repeat(review.stars) + "☆".repeat(5 - review.stars);
+
+      container.innerHTML = `
+        <div class="review-card">
+          <p class="review-text">"${review.text}"</p>
+          <div class="reviewer-name">- ${review.name} -</div>
+          <div class="stars">${stars}</div>
+        </div>
+      `;
+    }
+
+    function nextReview() {
+      currentReview = (currentReview + 1) % reviews.length;
+      renderReview(currentReview);
+    }
+
+    function prevReview() {
+      currentReview = (currentReview - 1 + reviews.length) % reviews.length;
+      renderReview(currentReview);
+    }
+
+    window.onload = () => {
+      renderReview(currentReview);
+    };
+  </script>
+
+
+
 
   <footer class="footeer">
     <div><strong>EliteDrive</strong><br>Experience Luxury on Every Drive</div>
