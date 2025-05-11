@@ -17,9 +17,9 @@
 <header>
     <img src="img/car-logo.png" class="logo" alt="">
   <nav>
-    <a href="#cars">Our Cars</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact Us</a>
+    <a href="Home.html">Our Cars</a>
+    <a href="Home.html">About Us</a>
+    <a href="https://www.linkedin.com/in/yassine-hajib-55a307300/">Contact Us</a>
   </nav>
 </header>
 
@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="main-right">
-    <h1>  Audi Rs Q8 </h1><br>
+    <h1 id="Boking">  Audi Rs Q8 </h1><br>
     <p id="price"> 5 000 DH/Day </p><br>
 
     <h1> Booking Duration </h1>
@@ -51,8 +51,14 @@
     <button class="submit-btn"> Rent Now  </button>
   </div>
   </div>
-</section>
+  </section>
 
+  <script> 
+  function scrollToBooking() {
+  const section = document.getElementById("Boking");
+  section.scrollIntoView({ behavior: 'smooth' });
+  }
+ </script>
     
 <br><br><br><br><br><br><br><br>
 

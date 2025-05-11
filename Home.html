@@ -2,40 +2,40 @@
 <head>
  
     <title>Cars</title>
-
     <!-- Link Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Link File CSS -->
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body bgcolor="black" text="White">
     <header>
         <!-- Menu-->
         <nav>
             <img src="img/car-logo.png" class="logo" alt="">
-            <div class="menu">
+            <div class="menu">   <!-- Section id is For ScrollTo Section-->
                 <a href="#">Home</a>
-                <a href="#">Our Cars</a>
-                <a href="#">About Us</a>
+                <a onclick="scrollToTarget()"> Our Cars </a>  
+                <a onclick="scrollToAboutus()" >About Us</a>
                 <a href="https://www.linkedin.com/in/yassine-hajib-55a307300/">Contact Us </a>
             </div>
             <div class="social">
                 <a href="https://www.instagram.com/yassii._.ne/"> <i class="fa-brands fa-instagram"></i></a>
                 <a href ="https://www.linkedin.com/in/yassine-hajib-55a307300/" > <i class="fa-brands fa-linkedin-in"></i></a>
             </div>
-
         </nav>
     </header>
     
     <div class=" bgg">  <!-- Responsable For The Background  -->
         <div class="text">
-            <a href="#" class="btn"> Discover Our Cars</a>
+            <a onclick="scrollToTarget()" class="btn"> Discover Our Cars</a>
         </div>
     </div>
     <br><br><br>
         <h1 id="tt"> Our Cars </h1>
-<br><br>                                                              
+<br><br>        
+                                                      
 <!-- Car images-->
 <div class="container">
     <div class="car-card">
@@ -43,7 +43,7 @@
             <img src="Car/1.jpeg" alt="Car 1">
         </div>
         <div class="car-info">
-            <div class="car-name">Range Rover Sport</div>
+            <div class="car-name"> Range Rover Sport </div>
             <div class="car-price">  4 100 DH </div>
             <a href="Range.html" class="rent-button">Rent Now</a>
         </div>
@@ -61,23 +61,22 @@
     </div>
 
     
-    <div class="car-card">
+    <div class="car-card" id="section" >
         <div class="car-image">
             <img src="Car/11.jpeg" alt="Car 3">
         </div>
-        <div class="car-info">
+        <div class="car-info" >
             <div class="car-name"> BMW M4 Competition </div>
             <div class="car-price"> 3 200  DH</div>
             <a href="M4.html" class="rent-button">Rent Now</a>
         </div>
     </div>
-</div> 
-
-<br><br>
+    </div> 
+    <br><br>
 
 <div class="container">
     <div class="car-card">
-        <div class="car-image">
+        <div class="car-image" id="target-section"> <!-- The Id Is For The Scroll To Section -->
             <img src="Car/13.jpeg" alt="Car 1">
         </div>
         <div class="car-info">
@@ -86,7 +85,6 @@
             <a href="RollsRoys.html" class="rent-button">Rent Now</a>
         </div>
     </div>
-
     <div class="car-card">
         <div class="car-image">
             <img src="Car/18.jpeg" alt="Car 2">
@@ -264,7 +262,7 @@
 
 <br><br>
 
-<h2 class="titre">About Us</h2>
+<h2 class="titre" id="About">About Us</h2>
 <br><br>
 <div class="about-section">
     <div class="circle-info">
@@ -318,8 +316,7 @@
     <button class="nav-btn right" onclick="nextReview()">&#10095;</button>
   </section>
 
-
-     <script>
+         <script>
     const reviews = [
       {
         text: "Absolutely Perfect cars! I felt like royalty. The whole process was seamless and luxurious.",
@@ -345,36 +342,38 @@
 
     let currentReview = 0;
 
-    function renderReview(index) {
+    function renderReview(index) {  //Displays a specific review in the container.   
       const container = document.getElementById("reviews-container");
-      const review = reviews[index];
-      const stars = "★".repeat(review.stars) + "☆".repeat(5 - review.stars);
-
-      container.innerHTML = `
+      const review = reviews[index];  
+      const stars = "★".repeat(review.stars) + "☆".repeat(5 - review.stars);  // Add stars.
+            // Adds empty stars (to make 5 total).
+      container.innerHTML = ` 
         <div class="review-card">
           <p class="review-text">"${review.text}"</p>
           <div class="reviewer-name">- ${review.name} -</div>
           <div class="stars">${stars}</div>
         </div>
-      `;
+      `; // Print The Reviews With The Name and The Stars 
     }
 
     function nextReview() {
-      currentReview = (currentReview + 1) % reviews.length;
-      renderReview(currentReview);
+      currentReview = (currentReview + 1) % reviews.length; 
+      //% reviews.length → if you're at the last review, go back to the first
+      renderReview(currentReview);   // Show the new review 
     }
 
     function prevReview() {
       currentReview = (currentReview - 1 + reviews.length) % reviews.length;
       renderReview(currentReview);
     }
+    //+ reviews.length → makes sure you don’t go negative.
+    // % reviews.length → loops back to the last review if needed.
+
 
     window.onload = () => {
       renderReview(currentReview);
-    };
+    };   // When the page finishes loading, it shows the first review.
   </script>
-
-
 
 
   <footer class="footeer">

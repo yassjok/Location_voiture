@@ -15,10 +15,10 @@
 
   <header>
   <img src="img/car-logo.png" class="logo" alt="">
-    <nav>
-    <a href="#cars">Our Cars</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact Us</a>
+  <nav>
+    <a href="Home.html">Our Cars</a>
+    <a href="Home.html">About Us</a>
+    <a href="https://www.linkedin.com/in/yassine-hajib-55a307300/">Contact Us</a>
   </nav>
 </header>
 
@@ -34,7 +34,7 @@
     </div>
   </div>
   <div class="main-right">
-    <h1>   Audi Rs_7 ABT </h1><br>
+    <h1 id="Boking">   Audi Rs_7 ABT </h1><br>
     <p id="price"> 4 800 DH /Day </p><br>
 
     <h1> Booking Duration </h1>
@@ -62,7 +62,15 @@
     <p>Experience luxury, comfort, and performance like never before. Book now and enjoy the ride.</p>
     <button onclick="scrollToBooking()">Book Now</button>
   </div>
-</section>
+  </section>
+
+  <script> 
+  function scrollToBooking() {
+  const section = document.getElementById("Boking");
+  section.scrollIntoView({ behavior: 'smooth' });
+  }
+ </script>
+
    <br><br> 
     <h1 class="ttr"> Car Information </h1>
    <br><br>

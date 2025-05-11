@@ -18,9 +18,9 @@
   <header>
   <img src="img/car-logo.png" class="logo" alt="">
   <nav>
-    <a href="#cars">Our Cars</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact Us</a>
+    <a href="Home.html">Our Cars</a>
+    <a href="Home.html">About Us</a>
+    <a href="https://www.linkedin.com/in/yassine-hajib-55a307300/">Contact Us</a>
   </nav>
   </header>
 
@@ -35,7 +35,7 @@
     </div>
   </div>
   <div class="main-right">
-    <h1>  Lamborgini Urus </h1><br>
+    <h1 id="Boking">  Lamborgini Urus </h1><br>
     <p id="price"> 8 500 DH / Day  </p><br>
 
     <h1> Booking Duration </h1>
@@ -55,15 +55,20 @@
   </div>
 </section>
 <br><br><br><br>
-
   <section class="Description">
   <div class="Description-text">
     <h2>Rent  The New Lamborghini Urus </h2>
     <p>Experience luxury, comfort, and performance like never before. Book now and enjoy the ride.</p>
     <button onclick="scrollToBooking()">Book Now</button>
   </div>
-</section>
+    </section>
 
+    <script> 
+  function scrollToBooking() {
+  const section = document.getElementById("Boking");
+  section.scrollIntoView({ behavior: 'smooth' });
+  }
+  </script>
 
     <h1 class="ttr"> Car Information </h1>
    <br><br>

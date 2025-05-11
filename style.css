@@ -225,6 +225,7 @@
       margin: auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          /*make your layout responsive — it automatically adjusts the number of columns based on screen size.*/
       gap: 1rem;
     }
     .booking input, .booking select, .booking button {
@@ -236,7 +237,7 @@
     .booking button {
       background-color: #000;
       color: white;
-      cursor: pointer;
+      cursor: pointer; /* Changes the mouse cursor when you hover */
     }
   
 
@@ -245,7 +246,7 @@
       justify-content: center;
       gap: 50px;
       margin-bottom: 80px;
-      flex-wrap: wrap;
+      flex-wrap: wrap;  /*Items into next line */
       padding: 0 20px;
     }
 
@@ -383,7 +384,6 @@
       padding: 40px 30px;
       display: flex;
       justify-content: space-between;
-      flex-wrap: wrap;
       }
 
       footer div {
@@ -497,6 +497,6 @@
   color: #ff4d4d;
 }    
     .footeer{
-  background-color: #9e0404;
+  background-color: #352b2b;
 
     }
