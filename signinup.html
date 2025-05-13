@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In / Sign Up</title>
+    <style>
+        div {
+            border: 3px solid rgb(255, 22, 22);
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        input {
+            margin: 5px 0;
+            width: 80%;
+        }
+        table {
+            margin: 10px auto;
+            width: 90%;
+            color: crimson;
+        }
+    </style>
+</head>
+<body bgcolor="black" text="White">
+
+
+
+        <!-- Sign Up Section -->
+        <div id="signup">
+        <h3>Sign Up</h3>
+        <input type="text" id="in1" placeholder="Enter your name"><br>
+        <input type="text" id="in2" placeholder="Enter a password"><br>
+        <span id="s1" style="color: red;"></span><br>
+        <button onclick="add()"> Add user </button>
+    </div>
+    
+    <!-- Show Users Section -->
+    <div id="userlist">
+        <h3>User List</h3>
+        <button onclick="show()">Show users in table</button><br><br>
+        <table border="2px" id="table">
+            <tr><th>Username</th><th>Password</th></tr>
+        </table>
+    </div>
+    
+    <!-- Sign In Section -->
+    <div id="signin">
+        <h3>Sign In</h3>
+        <form onsubmit="return login()">
+            <label for="in3">Username:</label>
+            <input type="text" id="in3"><br>
+            <label for="in4">Password:</label>
+            <input type="password" id="in4"><br>
+            <span id="s2" style="color: red;"></span><br>
+            <input type="checkbox" onclick="showPass()"> Show password<br><br>
+            <input type="submit" href="Home.html" value="Login" >
+        </form>
+    </div>
+
+    <script>
+        var users = [
+        ];
+
+        function add() {
+            var userName = document.getElementById('in1').value;
+            var password = document.getElementById('in2').value;
+
+            if (password.length < 8) {
+                document.getElementById('s1').innerHTML = "Password must contain at least 8 characters";
+            } else {
+                users.push({ username: userName, password: password });
+                document.getElementById('s1').innerHTML = "User added successfully!";
+                console.log(users);
+            }
+        }
+
+        function show() {
+            var table = document.getElementById('table');
+            while (table.rows.length > 1) table.deleteRow(1);
+
+            users.forEach(user => {
+                var tr = document.createElement('tr');
+                var td1 = document.createElement('td');
+                var td2 = document.createElement('td');
+
+                td1.textContent = user.username;
+                td2.textContent = user.password;
+
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                table.appendChild(tr);
+            });
+        }
+
+        function showPass() {
+            var input = document.getElementById('in4');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+
+        function login() {
+            var username = document.getElementById('in3').value;
+            var password = document.getElementById('in4').value;
+
+            if (username === '') {
+                document.getElementById('s2').innerHTML = "Username must be filled out";
+                return false;
+            }
+            if (password === '') {
+                document.getElementById('s2').innerHTML = "Password must be filled out";
+                return false;
+            }
+
+            for (var i = 0; i < users.length; i++) {
+                if (username === users[i].username && password === users[i].password) {
+                    alert("Login successful!");
+                    return true;
+                }
+            }
+
+            document.getElementById('s2').innerHTML = "Username and password do not match";
+            return false;
+        }
+    </script>
+
+</body>
+</html>

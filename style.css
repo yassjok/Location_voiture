@@ -127,27 +127,6 @@
   color: white;
   }
 
-
-  /* Style For Sort */
-
-  .sortOrder{
-    padding: 5px;
-    border-radius: 13px;
-    border-color: #dd0707;
-    margin: 3px;
-    color: #ccc;
-    background-color: red;
-    float: right;
- 
-  }
-  .sortOrder:hover{
-   background-color: transparent;
-  }
-
-  .Affichage{
-    display: flex;
-    float: right;
-  }
   /*Style for car image*/
 
   body {
