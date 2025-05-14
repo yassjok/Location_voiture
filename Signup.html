@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+        }
+
+        .container {
+            width: 350px;
+            margin: 60px auto;
+            padding: 30px;
+            background: white;
+            border: 3px solid black;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 20px;
+            border: 1px solid black;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: black;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Sign Up</h2>
+        <input type="text" id="newUser" placeholder="Enter Username"><br>
+        <input type="password" id="newPass" placeholder="Enter Password"><br>
+        <span id="signupError" class="error"></span><br>
+        <button onclick="signup()">Register</button><br><br>
+        <p><strong>Already have an account? <a href="Login.html">Login</a></strong></p>
+    </div>
+
+    <script>
+        // Signup and save to localStorage
+        function signup() {
+            const username = document.getElementById("newUser").value;
+            const password = document.getElementById("newPass").value;
+            const error = document.getElementById("signupError");
+
+            if (username === "" || password.length < 8) {
+                error.textContent = "Username required & password must be at least 8 characters.";
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            if (users.find(u => u.username === username)) {
+                error.textContent = "Username already exists.";
+                return;
+            }
+
+            users.push({ username, password });
+            localStorage.setItem("users", JSON.stringify(users));
+            alert("Account created successfully! Please login.");
+            window.location.href = "index.html";
+        }
+    </script>
+    </body>
+    </html>

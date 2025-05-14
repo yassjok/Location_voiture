@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:url('Bg/baground.jpg');
+
+        }
+
+        .container {
+            width: 350px;
+            margin: 60px auto;
+            padding: 30px;
+            background: transparent;
+            border: 3px solid black;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 20px;
+            border: 1px solid black;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: black;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: transparent;
+        }
+
+        .user-list-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border: 2px solid red;
+            border-radius: 20px;
+            padding: 8px 20px;
+            background: white;
+            color: red;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        #userListTable {
+            margin: 40px auto;
+            width: 80%;
+            border-collapse: collapse;
+        }
+
+        #userListTable th, #userListTable td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        #userListTable th {
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Box -->
+    <button class="user-list-btn" onclick="toggleUserList()">User List</button>
+
+    <div class="container">
+        <h2>Login</h2>
+        <input type="text" id="loginUser" placeholder="Enter Username"><br>
+        <input type="password" id="loginPass" placeholder="Enter Password"><br>
+        <input type="checkbox" onclick="togglePassword()"> Show Password<br>
+        <span id="loginError" class="error"></span><br>
+        <button onclick="login()">Submit</button><br><br>
+        <p><strong>Don’t Have an account <a href="signup.html">Sign up</a></strong></p>
+    </div>
+
+    <!-- User List Table (hidden by default) -->
+    <table id="userListTable" style="display: none;">
+        <tr><th>Username</th><th>Password</th></tr>
+        <tbody id="userTableBody"></tbody>
+    </table>
+
+    <script>
+        // Load users from localStorage or initialize empty list
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Toggle password visibility
+        function togglePassword() {
+            const pass = document.getElementById("loginPass");
+            pass.type = pass.type === "password" ? "text" : "password";
+        }
+
+        // Show or hide user list table
+        function toggleUserList() {
+            const table = document.getElementById("userListTable");
+            const body = document.getElementById("userTableBody");
+
+            if (table.style.display === "none") {
+                // Show table
+                body.innerHTML = "";
+                users.forEach(user => {
+                    const row = `<tr><td>${user.username}</td><td>${user.password}</td></tr>`;
+                    body.innerHTML += row;
+                });
+                table.style.display = "table";
+            } else {
+                table.style.display = "none";
+            }
+        }
+
+        // Login function
+        function login() {
+            const username = document.getElementById("loginUser").value;
+            const password = document.getElementById("loginPass").value;
+            const errorMsg = document.getElementById("loginError");
+
+            const userFound = users.find(u => u.username === username && u.password === password);
+
+            if (userFound) {
+                window.location.href = "home.html"; // If login is valid, go to home page
+            } else {
+                errorMsg.textContent = "User does not exist. Please sign up.";
+            }
+        }
+    </script>
+</body>
+</html>
