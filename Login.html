@@ -1,144 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background:url('Bg/baground.jpg');
+  <title>Luxury Car Rental - Login</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
 
-        }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1;
+    }
 
-        .container {
-            width: 350px;
-            margin: 60px auto;
-            padding: 30px;
-            background: transparent;
-            border: 3px solid black;
-            border-radius: 20px;
-            text-align: center;
-        }
+    .login-container {
+      position: relative;
+      z-index: 2;
+      border: 2px solid black;
+      border-radius: 10px;
+      background: white;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+    }
 
-        input[type="text"], input[type="password"] {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 20px;
-            border: 1px solid black;
-            font-size: 16px;
-        }
+    .login-container h2 {
+      margin: 0 0 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-        button {
-            padding: 10px 20px;
-            border: none;
-            background-color: black;
-            color: white;
-            border-radius: 20px;
-            cursor: pointer;
-        }
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid black;
+      border-radius: 20px;
+      outline: none;
+    }
 
-        button:hover {
-            background-color: transparent;
-        }
+    .login-container .checkbox-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0;
+    }
 
-        .user-list-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            border: 2px solid red;
-            border-radius: 20px;
-            padding: 8px 20px;
-            background: white;
-            color: red;
-            font-weight: bold;
-            cursor: pointer;
-        }
+    .login-container input[type="checkbox"] {
+      margin-right: 5px;
+    }
 
-        .error {
-            color: red;
-            font-size: 14px;
-        }
+    .login-container input[type="submit"] {
+      background-color: #d32f2f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
 
-        #userListTable {
-            margin: 40px auto;
-            width: 80%;
-            border-collapse: collapse;
-        }
+    .login-container input[type="submit"]:hover {
+      background-color: #b71c1c;
+    }
 
-        #userListTable th, #userListTable td {
-            border: 1px solid black;
-            padding: 10px;
-        }
+    .signup-link {
+      margin-top: 15px;
+      font-size: 14px;
+    }
 
-        #userListTable th {
-            background: transparent;
-        }
-    </style>
+    .signup-link a {
+      color: #d32f2f;
+      text-decoration: none;
+    }
+
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin: 10px 0;
+      display: block;
+    }
+
+    .user-list-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 2;
+      background-color: #d32f2f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .user-list-btn:hover {
+      background-color: #b71c1c;
+    }
+
+    .user-table-container {
+      position: absolute;
+      top: 80px;
+      right: 20px;
+      z-index: 2;
+      background: white;
+      padding: 10px;
+      border: 2px solid black;
+      border-radius: 10px;
+      display: none;
+    }
+
+    .user-table-container table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .user-table-container th,
+    .user-table-container td {
+      padding: 8px;
+      text-align: left;
+      border: 1px solid black;
+    }
+  </style>
 </head>
 <body>
-
-    <!-- Login Box -->
-    <button class="user-list-btn" onclick="toggleUserList()">User List</button>
-
-    <div class="container">
-        <h2>Login</h2>
-        <input type="text" id="loginUser" placeholder="Enter Username"><br>
-        <input type="password" id="loginPass" placeholder="Enter Password"><br>
-        <input type="checkbox" onclick="togglePassword()"> Show Password<br>
-        <span id="loginError" class="error"></span><br>
-        <button onclick="login()">Submit</button><br><br>
-        <p><strong>Don’t Have an account <a href="signup.html">Sign up</a></strong></p>
-    </div>
-
-    <!-- User List Table (hidden by default) -->
-    <table id="userListTable" style="display: none;">
-        <tr><th>Username</th><th>Password</th></tr>
-        <tbody id="userTableBody"></tbody>
+  <div class="overlay"></div>
+  <button class="user-list-btn" onclick="toggleUserList()">User List</button>
+  <div id="div1" class="user-table-container">
+    <table id="table">
+      <tr><th>Name</th><th>Password</th></tr>
     </table>
+  </div>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form action="Home.html" onsubmit="return login()">
+      <input type="text" id="in3" placeholder="Enter your name"><br>
+      <input type="password" id="in4" placeholder="Enter a password"><br>
+      <span id="s2" class="error-message"></span>
+      <div class="checkbox-container">
+        <input type="checkbox" onclick="showPass()"> Show password
+      </div>
+      <input type="submit" value="Login">
+    </form>
+    <div class="signup-link">
+      Don't have an account? <a href="signup.html">Sign up</a>
+    </div>
+  </div>
 
-    <script>
-        // Load users from localStorage or initialize empty list
-        let users = JSON.parse(localStorage.getItem("users")) || [];
+   <script>
+      var users = [];
+      function add() {
 
-        // Toggle password visibility
-        function togglePassword() {
-            const pass = document.getElementById("loginPass");
-            pass.type = pass.type === "password" ? "text" : "password";
+        var userNameIn1 = document.getElementById('in1').value;
+        var passwordIn2 = document.getElementById('in2').value;
+
+        var user = {};
+        user.username = userNameIn1; // Assigns the username and password to the user object
+         user.password = passwordIn2; 
+         users.push(user); // Adds the user object to the users table
+         console.log(users); // update users  table
+    }
+
+    // Display all users in the table
+    function show() {
+      var table = document.getElementById('table');
+
+      for (var i = 0; i < users.length; i++) { // Loops through each user in the array
+        var tr = document.createElement('tr'); // Creates a new table row 
+
+                // create two table one for the username and other for password
+        var td1 = document.createElement('td'); 
+        var td2 = document.createElement('td'); 
+                // Add the username and the password 
+        td1.append(users[i].username); 
+        td2.append(users[i].password);
+                // Add The Username and The Passwords to the rows 
+        tr.append(td1); 
+        tr.append(td2); 
+              // Add The Row to the Table 
+        table.append(tr); 
+      }
+    }
+
+    // Shows or hides the table when the User List button is clicked
+
+    function toggleUserList() {
+      var tableContainer = document.getElementById('div1'); // Gets the table container
+      if (tableContainer.style.display === 'block') { // Checks if table is currently visible
+        tableContainer.style.display = 'none'; // Hides the table if visible
+      } else {
+        tableContainer.style.display = 'block'; // Shows the table if hidden
+        show(); // Calls show function to populate the table with users
+      }
+    }
+          // Allow to the user To see or hide The Password 
+    function showPass() {
+      var passValue = document.getElementById('in4'); // Gets the password input element
+      if (passValue.type == 'text') { 
+        passValue.type = 'password'; // If it Visible , Hide it
+      } else if (passValue.type == 'password') { 
+        passValue.type = 'text'; // If it's Hidden , Show it 
+      }
+    }
+
+    // Checks if username and password exist for the user 
+
+    function login() {
+          // Gets the Username and The Password 
+      var userNameIn3 = document.getElementById('in3').value; 
+      var passwordIn4 = document.getElementById('in4').value; 
+      if (userNameIn3 == '') { // Checks if username field is empty
+        document.getElementById('s2').innerHTML = "username must be filled out"; // Displays error message
+        return false; // Prevents form submission
+
+      } else if (passwordIn4 == '') { // Checks if password field is empty
+        document.getElementById('s2').innerHTML = "password must be filled out"; 
+        return false;
+      }
+      
+          // Loop through all users and check if credentials match
+      for (var i = 0; i < users.length; i++) { 
+        if (userNameIn3 == users[i].username && passwordIn4 == users[i].password) { 
+          return true; // Match found, allow form submission and redirect to Home.html
         }
+      }
+      document.getElementById('s2').innerHTML = "password and username do not match";
+      return false; // Prevents form submission if no match
+    }
 
-        // Show or hide user list table
-        function toggleUserList() {
-            const table = document.getElementById("userListTable");
-            const body = document.getElementById("userTableBody");
+    // Function To remember the users who signed up, even after we close the browser
 
-            if (table.style.display === "none") {
-                // Show table
-                body.innerHTML = "";
-                users.forEach(user => {
-                    const row = `<tr><td>${user.username}</td><td>${user.password}</td></tr>`;
-                    body.innerHTML += row;
-                });
-                table.style.display = "table";
-            } else {
-                table.style.display = "none";
-            }
-        }
-
-        // Login function
-        function login() {
-            const username = document.getElementById("loginUser").value;
-            const password = document.getElementById("loginPass").value;
-            const errorMsg = document.getElementById("loginError");
-
-            const userFound = users.find(u => u.username === username && u.password === password);
-
-            if (userFound) {
-                window.location.href = "home.html"; // If login is valid, go to home page
-            } else {
-                errorMsg.textContent = "User does not exist. Please sign up.";
-            }
-        }
-    </script>
+    function loadUsersFromSignup() {
+      if (localStorage.getItem('users')) { // Checks if there are saved users in localStorage
+        users = JSON.parse(localStorage.getItem('users')); // get the saved user list and put it into the users array
+      }
+    }
+    window.onload = loadUsersFromSignup; // Executes The function when the page open
+  </script>
 </body>
 </html>

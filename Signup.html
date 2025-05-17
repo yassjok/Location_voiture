@@ -1,87 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f7f7f7;
-        }
+  <title>Luxury Car Rental - Sign Up</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
 
-        .container {
-            width: 350px;
-            margin: 60px auto;
-            padding: 30px;
-            background: white;
-            border: 3px solid black;
-            border-radius: 20px;
-            text-align: center;
-        }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1;
+    }
 
-        input[type="text"], input[type="password"] {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 20px;
-            border: 1px solid black;
-            font-size: 16px;
-        }
+    .signup-container {
+      position: relative;
+      z-index: 2;
+      border: 2px solid black;
+      border-radius: 10px;
+      background: white;
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+    }
 
-        button {
-            padding: 10px 20px;
-            border: none;
-            background-color: black;
-            color: white;
-            border-radius: 20px;
-            cursor: pointer;
-        }
+    .signup-container h2 {
+      margin: 0 0 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-        button:hover {
-            background-color: #333;
-        }
+    .signup-container input[type="text"],
+    .signup-container input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid black;
+      border-radius: 20px;
+      outline: none;
+    }
 
-        .error {
-            color: red;
-            font-size: 14px;
-        }
-    </style>
+    .signup-container input[type="button"] {
+      background-color: #d32f2f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .signup-container input[type="button"]:hover {
+      background-color: #b71c1c;
+    }
+
+    .message {
+      color: green;
+      font-size: 14px;
+      margin: 10px 0;
+      display: block;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin: 10px 0;
+      display: block;
+    }
+  </style>
 </head>
 <body>
+  <div class="overlay"></div>
+  <div class="signup-container">
+    <h2>Sign Up</h2>
+    <input type="text" id="in1" placeholder="Enter your name"><br>
+    <input type="password" id="in2" placeholder="Enter a password"><br>
+    <span id="si" class="error-message"></span>
+    <span id="success" class="message"></span>
+    <input type="button" value="Sign Up" onclick="add()">
+  </div>
 
-    <div class="container">
-        <h2>Sign Up</h2>
-        <input type="text" id="newUser" placeholder="Enter Username"><br>
-        <input type="password" id="newPass" placeholder="Enter Password"><br>
-        <span id="signupError" class="error"></span><br>
-        <button onclick="signup()">Register</button><br><br>
-        <p><strong>Already have an account? <a href="Login.html">Login</a></strong></p>
-    </div>
+  <script>
+    var users = [];
+    // Function to add a new user 
+    function add() {
+      var userNameIn1 = document.getElementById('in1').value; 
+      var passwordIn2 = document.getElementById('in2').value; 
 
-    <script>
-        // Signup and save to localStorage
-        function signup() {
-            const username = document.getElementById("newUser").value;
-            const password = document.getElementById("newPass").value;
-            const error = document.getElementById("signupError");
+      if (userNameIn1 == '' || passwordIn2 == '') { // Checks if  field is empty
+        document.getElementById('si').innerHTML = "Please fill out both fields"; 
+      } else {
+        var user = {}; // Creates a new empty object for the user
+        user.username = userNameIn1; // Assigns the username and Password to the object
+        user.password = passwordIn2; 
+        users.push(user); // Adds the user to the users array and save it to localStorage
+        localStorage.setItem('users', JSON.stringify(users)); 
 
-            if (username === "" || password.length < 8) {
-                error.textContent = "Username required & password must be at least 8 characters.";
-                return;
-            }
+        document.getElementById('si').innerHTML = ""; // Clears any error message
+        document.getElementById('success').innerHTML = "Sign up successful! Please log in."; 
+          window.location.href = 'Login.html'; // Redirects to the login page
+       
+      }
+    }
 
-            let users = JSON.parse(localStorage.getItem("users")) || [];
-
-            if (users.find(u => u.username === username)) {
-                error.textContent = "Username already exists.";
-                return;
-            }
-
-            users.push({ username, password });
-            localStorage.setItem("users", JSON.stringify(users));
-            alert("Account created successfully! Please login.");
-            window.location.href = "index.html";
-        }
-    </script>
-    </body>
-    </html>
+      //load existing users from localStorage when the page loads
+    window.onload = function() {
+      if (localStorage.getItem('users')) { // Checks if there are saved users
+        users = JSON.parse(localStorage.getItem('users')); // Loads saved users
+      }
+    };
+  </script>
+</body>
+</html>
