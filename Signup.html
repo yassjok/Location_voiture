@@ -95,28 +95,33 @@
 
   <script>
     var users = [];
-    // Function to add a new user 
-    function add() {
-      var userNameIn1 = document.getElementById('in1').value; 
-      var passwordIn2 = document.getElementById('in2').value; 
+  function add() {
+        //Gets The Username with The Password 
+     var userNameIn1 = document.getElementById('in1').value; 
+     var passwordIn2 = document.getElementById('in2').value; 
 
-      if (userNameIn1 == '' || passwordIn2 == '') { // Checks if  field is empty
-        document.getElementById('si').innerHTML = "Please fill out both fields"; 
-      } else {
-        var user = {}; // Creates a new empty object for the user
-        user.username = userNameIn1; // Assigns the username and Password to the object
-        user.password = passwordIn2; 
-        users.push(user); // Adds the user to the users array and save it to localStorage
-        localStorage.setItem('users', JSON.stringify(users)); 
+       if (userNameIn1 == '' || passwordIn2 == '') {  //Should Not Be empty 
+       document.getElementById('si').innerHTML = "Please fill out both fields"; 
+      document.getElementById('success').innerHTML = "";    
+      } else if (passwordIn2.length < 6) {                    // Password Must contain 6 caracteres 
+    document.getElementById('si').innerHTML = "Password must be at least 6 characters long";
+    document.getElementById('success').innerHTML = "";
+     } else {
+    var user = {};    // Creat new user structure and add the user informations to it 
+    user.username = userNameIn1;
+    user.password = passwordIn2;
+    users.push(user);
+      // Save the array to localStorage
+    localStorage.setItem('users', JSON.stringify(users)); 
 
-        document.getElementById('si').innerHTML = ""; // Clears any error message
-        document.getElementById('success').innerHTML = "Sign up successful! Please log in."; 
-          window.location.href = 'Login.html'; // Redirects to the login page
-       
-      }
+    document.getElementById('si').innerHTML = "";
+    document.getElementById('success').innerHTML = "Sign up successful! Please log in."; 
+    window.location.href = 'Login.html';
+     }
     }
+    
+        // Load existing users from localStorage when the page loads
 
-      //load existing users from localStorage when the page loads
     window.onload = function() {
       if (localStorage.getItem('users')) { // Checks if there are saved users
         users = JSON.parse(localStorage.getItem('users')); // Loads saved users

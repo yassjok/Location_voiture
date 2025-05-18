@@ -108,19 +108,19 @@
       color: white;
       padding: 10px 20px;
       border: none;
-      border-radius: 20px;
+      border-radius: 40px;
       cursor: pointer;
     }
 
     .user-list-btn:hover {
-      background-color: #b71c1c;
+      background-color: #723636;
     }
 
     .user-table-container {
       position: absolute;
       top: 80px;
       right: 20px;
-      z-index: 2;
+      z-index: 2;    /* To Let The Table appear in front the bg not behind it*/
       background: white;
       padding: 10px;
       border: 2px solid black;
@@ -130,7 +130,6 @@
 
     .user-table-container table {
       width: 100%;
-      border-collapse: collapse;
     }
 
     .user-table-container th,
@@ -142,24 +141,29 @@
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
+  <div class="overlay"> </div> <!-- Darked Background -->
+
   <button class="user-list-btn" onclick="toggleUserList()">User List</button>
   <div id="div1" class="user-table-container">
     <table id="table">
       <tr><th>Name</th><th>Password</th></tr>
     </table>
   </div>
+
   <div class="login-container">
     <h2>Login</h2>
     <form action="Home.html" onsubmit="return login()">
       <input type="text" id="in3" placeholder="Enter your name"><br>
       <input type="password" id="in4" placeholder="Enter a password"><br>
       <span id="s2" class="error-message"></span>
+
       <div class="checkbox-container">
         <input type="checkbox" onclick="showPass()"> Show password
       </div>
+
       <input type="submit" value="Login">
     </form>
+
     <div class="signup-link">
       Don't have an account? <a href="signup.html">Sign up</a>
     </div>
@@ -172,9 +176,10 @@
         var userNameIn1 = document.getElementById('in1').value;
         var passwordIn2 = document.getElementById('in2').value;
 
-        var user = {};
-        user.username = userNameIn1; // Assigns the username and password to the user object
+        var user = {};  // Assigns the username and password to the user object
+        user.username = userNameIn1; 
          user.password = passwordIn2; 
+         
          users.push(user); // Adds the user object to the users table
          console.log(users); // update users  table
     }
