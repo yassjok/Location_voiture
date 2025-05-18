@@ -28,3 +28,8 @@ function changeImage(el) {   // el Refer To Clicked Thumbnail image
       element.scrollIntoView({ behavior: "smooth" });
     }
   
+  function goToThankYou() {
+    // Optional: You can validate fields before redirecting
+    window.location.href = "Thank_You_Page.html";
+  }
+
