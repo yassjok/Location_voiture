@@ -102,17 +102,19 @@
 
        if (userNameIn1 == '' || passwordIn2 == '') {  //Should Not Be empty 
        document.getElementById('si').innerHTML = "Please fill out both fields"; 
-      document.getElementById('success').innerHTML = "";    
-      } else if (passwordIn2.length < 6) {                    // Password Must contain 6 caracteres 
+      document.getElementById('success').innerHTML = "";  
+
+      } else if (passwordIn2.length < 6) {              // Password Must contain 6 caracteres 
     document.getElementById('si').innerHTML = "Password must be at least 6 characters long";
     document.getElementById('success').innerHTML = "";
      } else {
+
     var user = {};    // Creat new user structure and add the user informations to it 
     user.username = userNameIn1;
     user.password = passwordIn2;
-    users.push(user);
-      // Save the array to localStorage
-    localStorage.setItem('users', JSON.stringify(users)); 
+    users.push(user);     // Save the array to localStorage
+
+    localStorage.setItem('users', JSON.stringify(users)); // Convert it To String 
 
     document.getElementById('si').innerHTML = "";
     document.getElementById('success').innerHTML = "Sign up successful! Please log in."; 

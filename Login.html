@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Luxury Car Rental - Login</title>
+  <title>Login</title>
   <style>
     body {
       margin: 0;
@@ -16,14 +16,14 @@
       position: relative;
     }
 
-    .overlay {
+    .overlay {   /*Darked Background */
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.7);
-      z-index: 1;
+      z-index :-1; /* To Appear behind It appears behind the .login-container ... */
     }
 
     .login-container {
@@ -50,7 +50,6 @@
       margin: 10px 0;
       border: 2px solid black;
       border-radius: 20px;
-      outline: none;
     }
 
     .login-container .checkbox-container {
@@ -127,11 +126,9 @@
       border-radius: 10px;
       display: none;
     }
-
     .user-table-container table {
       width: 100%;
     }
-
     .user-table-container th,
     .user-table-container td {
       padding: 8px;
@@ -169,96 +166,91 @@
     </div>
   </div>
 
-   <script>
-      var users = [];
-      function add() {
+    <script>
+  //store all users
+  let users = [];
 
-        var userNameIn1 = document.getElementById('in1').value;
-        var passwordIn2 = document.getElementById('in2').value;
+  window.onload = function () {  // It checks if there are any users saved in localStorage
+    let saved = localStorage.getItem('users');
+    if (saved) { // If yes, it loads them into the users array
+      users = JSON.parse(saved); //convert string to js array 
+    }
+  };
 
-        var user = {};  // Assigns the username and password to the user object
-        user.username = userNameIn1; 
-         user.password = passwordIn2; 
-         
-         users.push(user); // Adds the user object to the users table
-         console.log(users); // update users  table
+
+  function showPass() {
+    let pass = document.getElementById('in4');
+    // Ternair operator for type of password
+    pass.type = (pass.type === 'password') ? 'text' : 'password';
+  }
+
+  // Function that handles login form validation
+  function login() {
+    let name = document.getElementById('in3').value; // Username input
+    let pass = document.getElementById('in4').value; // Password input
+    let error = document.getElementById('s2'); // Error message area
+
+    // Check if username is empty
+    if (name === '') {
+      error.innerHTML = "username must be filled out";
+      return false; // Prevent form submission
     }
 
-    // Display all users in the table
-    function show() {
-      var table = document.getElementById('table');
+    // Check if password is empty
+    if (pass === '') {
+      error.innerHTML = "password must be filled out";
+      return false; // Prevent form submission
+    }
 
-      for (var i = 0; i < users.length; i++) { // Loops through each user in the array
-        var tr = document.createElement('tr'); // Creates a new table row 
-
-                // create two table one for the username and other for password
-        var td1 = document.createElement('td'); 
-        var td2 = document.createElement('td'); 
-                // Add the username and the password 
-        td1.append(users[i].username); 
-        td2.append(users[i].password);
-                // Add The Username and The Passwords to the rows 
-        tr.append(td1); 
-        tr.append(td2); 
-              // Add The Row to the Table 
-        table.append(tr); 
+    // Loop through the users array to check if login info matches
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].username === name && users[i].password === pass) {
+        return true; // Login successful, allow redirection to Home.html
       }
     }
 
-    // Shows or hides the table when the User List button is clicked
+    // If no matching user was found
+    error.innerHTML = "password and username do not match";
+    return false; // Stop form from submitting
+  }
 
-    function toggleUserList() {
-      var tableContainer = document.getElementById('div1'); // Gets the table container
-      if (tableContainer.style.display === 'block') { // Checks if table is currently visible
-        tableContainer.style.display = 'none'; // Hides the table if visible
-      } else {
-        tableContainer.style.display = 'block'; // Shows the table if hidden
-        show(); // Calls show function to populate the table with users
-      }
-    }
-          // Allow to the user To see or hide The Password 
-    function showPass() {
-      var passValue = document.getElementById('in4'); // Gets the password input element
-      if (passValue.type == 'text') { 
-        passValue.type = 'password'; // If it Visible , Hide it
-      } else if (passValue.type == 'password') { 
-        passValue.type = 'text'; // If it's Hidden , Show it 
-      }
+  // Function to display users in the HTML table
+  function show() {
+    let table = document.getElementById('table');
+
+    // Clear previous rows, except the header row
+    while (table.rows.length > 1) {
+      table.deleteRow(1);
     }
 
-    // Checks if username and password exist for the user 
+    // Loop through all users and add them to the table
+    for (let i = 0; i < users.length; i++) {
+      let row = document.createElement('tr'); // New row
+      let td1 = document.createElement('td'); // Username cell
+      let td2 = document.createElement('td'); // Password cell
 
-    function login() {
-          // Gets the Username and The Password 
-      var userNameIn3 = document.getElementById('in3').value; 
-      var passwordIn4 = document.getElementById('in4').value; 
-      if (userNameIn3 == '') { // Checks if username field is empty
-        document.getElementById('s2').innerHTML = "username must be filled out"; // Displays error message
-        return false; // Prevents form submission
+      td1.textContent = users[i].username;
+      td2.textContent = users[i].password;
 
-      } else if (passwordIn4 == '') { // Checks if password field is empty
-        document.getElementById('s2').innerHTML = "password must be filled out"; 
-        return false;
-      }
-      
-          // Loop through all users and check if credentials match
-      for (var i = 0; i < users.length; i++) { 
-        if (userNameIn3 == users[i].username && passwordIn4 == users[i].password) { 
-          return true; // Match found, allow form submission and redirect to Home.html
-        }
-      }
-      document.getElementById('s2').innerHTML = "password and username do not match";
-      return false; // Prevents form submission if no match
+      row.append(td1);
+      row.append(td2);
+      table.append(row); // Add the row to the table
     }
+  }
 
-    // Function To remember the users who signed up, even after we close the browser
+  // Function to toggle the visibility of the user list
+  function toggleUserList() {
+    let div = document.getElementById('div1');
 
-    function loadUsersFromSignup() {
-      if (localStorage.getItem('users')) { // Checks if there are saved users in localStorage
-        users = JSON.parse(localStorage.getItem('users')); // get the saved user list and put it into the users array
-      }
+    // If the table is showing, hide it
+    if (div.style.display === 'block') {
+      div.style.display = 'none';
+    } else {
+      // Otherwise, show it and update the user list
+      div.style.display = 'block';
+      show();
     }
-    window.onload = loadUsersFromSignup; // Executes The function when the page open
-  </script>
-</body>
-</html>
+  }
+  </script> 
+  </body>
+  </html>

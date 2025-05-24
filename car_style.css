@@ -53,8 +53,6 @@
     margin-top: 10px;
     position:absolute;
     left: 10;
-
-
   }
 
   .thumbnails img {
@@ -105,19 +103,7 @@
     gap: 30px;
   }
 
-  .alt-section:nth-child(even) {
-    flex-direction: row-reverse;
-  }
-
-  .alt-section img {
-    width: 300px;
-    border-radius: 10px;
-    margin-left: 30%;
-  }
-
-  .alt-section .info {
-    max-width: 400px;
-  }
+  
 
   .reviews {
     background-color: #111;

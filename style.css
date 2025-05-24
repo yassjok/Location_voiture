@@ -145,14 +145,13 @@
   .car-card {
       background: #1a1a1a;
       border-radius: 12px;
-      overflow: hidden;
       text-align: center;
       width: 30%;
       box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5);
       transition: transform 0.3s;
   }
   .car-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-10px); /*The Move On Top */
   }
   .car-image img {
       width: 100%;
@@ -201,10 +200,6 @@
     }
     .booking form {
       max-width: 800px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-          /*make your layout responsive — it automatically adjusts the number of columns based on screen size.*/
       gap: 1rem;
     }
     .booking input, .booking select, .booking button {
@@ -218,8 +213,6 @@
       color: white;
       cursor: pointer; /* Changes the mouse cursor when you hover */
     }
-  
-
     .about-section {
       display: flex;
       justify-content: center;
@@ -228,7 +221,6 @@
       flex-wrap: wrap;  /*Items into next line */
       padding: 0 20px;
     }
-
     .circle-info {
       width: 200px;
       height: 200px;
@@ -245,18 +237,15 @@
       box-shadow: 0 0 25px rgba(255,255,255,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
-      overflow: hidden;
     }
 
     .circle-info::after {
-      content: "";
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background: rgba(255, 255, 255, 0.05);
-      pointer-events: none;
     }
 
     .circle-info:hover {

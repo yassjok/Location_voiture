@@ -15,9 +15,9 @@ function changeImage(el) {   // el Refer To Clicked Thumbnail image
             carSection.appendChild(currentContainer);  // new container is created and added to the page.
         }
         currentContainer.appendChild(card);   //  Add the card to the current container
-    });   
+      });   
 
-    
+      
     function scrollToTarget() {  //Scroll To Section
       const element = document.getElementById("target-section");
       element.scrollIntoView({ behavior: "smooth" });
